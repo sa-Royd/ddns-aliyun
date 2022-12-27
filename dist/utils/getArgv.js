@@ -18,23 +18,28 @@ function getArgv(key) {
 exports.getArgv = getArgv;
 // '10010&10010.xxxx.com,10086&10086.xxxx.com'
 // 网卡名1&要绑定的域名1,网卡名2&要绑定的域名2
-// 不能包含空格
 function getDomain(v) {
-    const ethernet = [];
-    const domain = [];
+	// 如果没有指定任何一个网卡名，则所有域名共同更新为一个Ip,如果部分有指定网卡名，那么没指定网卡名的就不更新域名
+	var updateAll=true;	
+    const domains = [];
     if (v) {
         const a = v.split(',');
         a.forEach(value => {
             const b = value.split('&');
+			var dm = {name:null,domain:""};
             if (b.length === 1) {
-                domain.push(b[0]);
+				dm.domain=b[0].trim();
             }
             else {
-                ethernet.push(b[0]);
-                domain.push(b[1]);
+				updateAll=false;
+				dm.name=b[0].trim();
+				dm.domain=b[1].trim();
             }
+            domains.push(dm);
         });
+		
+		domains.forEach(value=>value.name=(updateAll&&(value.name==null||value.name===""))?"_default_":value.name);
     }
-    return { ethernet, domain };
+    return domains;
 }
 exports.getDomain = getDomain;

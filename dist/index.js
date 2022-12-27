@@ -18,9 +18,7 @@ async function init() {
     config.AccessKey = (0, getArgv_1.getArgv)('AccessKey');
     config.AccessKeySecret = (0, getArgv_1.getArgv)('AccessKeySecret');
     config.IPVersion = (0, getArgv_1.getArgv)('ip') || '4';
-    config.DomainObj = (0, getArgv_1.getDomain)((0, getArgv_1.getArgv)('Domain'));
-    config.Domain = config.DomainObj.domain;
-    config.Ethernets = config.DomainObj.ethernet;
+    config.Domain = (0, getArgv_1.getDomain)((0, getArgv_1.getArgv)('Domain'));
     const settimeID = setTimeout(() => {
         (0, log_1.log)('---超时退出---');
         process.exit(1);
