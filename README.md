@@ -97,8 +97,13 @@ ddns-ali -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,
 
 2. win `计划任务中`添加 `run.sh` ，mac/linux 可以在`crontab`中添加 `run.sh`
 
-
 ## 更新日志
+
+### v1.1.0
+
+1.修复多个域名无法同时更新为一个ip的Bug
+2.修复参数中部分有网卡名和无网卡名的域名混合时会出现Bug.
+3.修复一些其它的bug.
 
 ### v1.0.10
 
