@@ -109,17 +109,4 @@ ddns-ali -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,
 
 完善ipv6支持
 
-### v1.0.8
-
-增加命令行下，版本输出
-```
-ddns-ali -v
-```
-
-### v1.0.7
-
-增加命令行下，十秒后如果没有更新成功，强制关闭线程。
-
-### v1.0.6
-
 版本发布
