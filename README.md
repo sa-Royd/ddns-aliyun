@@ -101,9 +101,9 @@ ddns-ali -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,
 
 ### v1.1.0
 
-1.修复多个域名无法同时更新为一个ip的Bug
-2.修复参数中部分有网卡名和无网卡名的域名混合时会出现Bug.
-3.修复一些其它的bug.
+- 修复多个域名无法同时更新为一个ip的Bug
+- 修复参数中部分有网卡名和无网卡名的域名混合时会出现Bug.
+- 修复一些其它的bug.
 
 ### v1.0.10
 
