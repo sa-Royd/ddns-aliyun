@@ -1,21 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDomain = exports.getArgv = void 0;
-function getArgv(key) {
-    if (process.env[key]) {
-        return process.env[key];
-    }
-    for (let i = 0; i < process.argv.length; i++) {
-        if (process.argv[i] === '-' + key) {
-            return process.argv[i + 1];
-        }
-        else if (process.argv[i] === '-v' || process.argv[i] === '-version') {
-            return 'true';
-        }
-    }
-    return undefined;
+exports.getDomain = exports.createArgv = void 0;
+function createArgv(){
+	var argv = new Map();
+	argv.set("--program",process.argv[0]);
+	argv.set("--name",process.argv[1]);
+	var name = "";
+	var value = "";
+	for(let i=2;i<process.argv.length;i++){
+		if (process.argv[i].indexOf('-')===0)
+			name = process.argv[i];
+
+		// 这里的条件不可以 == -1 如果是这样的话，域名中有 - 的话，这个代码就会出bug了, 
+		// 只要-这个符号不出现在第一个字符，就认为是参数值，而不是参数名
+		if(i+1<process.argv.length && process.argv[i+1].indexOf("-")!==0){ 
+			value = process.argv[i+1];
+			i++;
+		}
+		argv.set(name,value);
+		console.log(argv);
+		name="";
+		value="";
+	}
+	return argv;
 }
-exports.getArgv = getArgv;
+exports.createArgv = createArgv;
+
 // '10010&10010.xxxx.com,10086&10086.xxxx.com'
 // 网卡名1&要绑定的域名1,网卡名2&要绑定的域名2
 function getDomain(v) {

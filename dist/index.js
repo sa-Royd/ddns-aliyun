@@ -13,12 +13,14 @@ Object.defineProperty(exports, "logConfig", { enumerable: true, get: function ()
 const printLocalNet_1 = require("./utils/printLocalNet");
 const packages = require('../package.json');
 log_1.logConfig.debug = true; // 是否输出日志信息
-async function init() {
+async function init(argvs) {
     const config = {};
-    config.AccessKey = (0, getArgv_1.getArgv)('AccessKey');
-    config.AccessKeySecret = (0, getArgv_1.getArgv)('AccessKeySecret');
-    config.IPVersion = (0, getArgv_1.getArgv)('ip') || '4';
-    config.Domain = (0, getArgv_1.getDomain)((0, getArgv_1.getArgv)('Domain'));
+    config.AccessKey = argvs.get('--accessKey');
+    config.AccessKeySecret = argvs.get('--accessKeySecret');
+    config.IPVersion = argvs.get('--ip');
+    config.Domain = (0, getArgv_1.getDomain)(argvs.get("--domain"));
+
+	console.log(config);
     const settimeID = setTimeout(() => {
         (0, log_1.log)('---超时退出---');
         process.exit(1);
@@ -32,12 +34,40 @@ async function init() {
     }
     clearTimeout(settimeID);
 }
-if ((0, getArgv_1.getArgv)('v') || (0, getArgv_1.getArgv)('version')) {
+
+var	argvs = (0,getArgv_1.createArgv)();
+if (argvs.has("-v") || argvs.has("--version")) {
     console.log("当前版本:", packages.version);
     process.exit(0);
 }
-if ((0, getArgv_1.getArgv)('e') === 'true') {
-    (0, printLocalNet_1.printLocalNetwork)();
-    (0, log_1.log)('---开始---');
-    init();
+if(argvs.has("-accessKey")){
+    console.log("-accessKey参数不正确，请使用--accessKey！");
+	process.exit(1);
 }
+if(argvs.has("-accessKeySecret")){
+    console.log("-accessKeySecret参数不正确，请使用--accessKeySecret！");
+	process.exit(1);
+}
+if(!argvs.has("--accessKey")||!argvs.has("--accessKeySecret")){
+    console.log("请提供更新域名所需要的accessKey及accessKeySecret！");
+	process.exit(1);
+}
+if(!argvs.has("--domain")){
+    console.log("请提供要更新的域名信息！");
+	process.exit(1);
+}
+if(argvs.has("-ip")){
+    console.log("-ip参数不正确，请使用--ip！");
+	process.exit(1);
+}
+if(!argvs.has("--ip")) argvs.set("--ip","6"); // 未指定ip协议，默认用6更新
+if (argvs.has('-p') || argvs.has("--print")) 
+    (0, printLocalNet_1.printLocalNetwork)();
+
+if (argvs.has('-e') || argvs.has("--execute")){
+    (0, log_1.log)('---开始---');
+    init(argvs);
+}
+
+process.exit(0);
+
