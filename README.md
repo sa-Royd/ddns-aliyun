@@ -36,26 +36,29 @@ npm i -g ddns-aliyun
 多网卡绑定多域名方式：
 
 ``` sh
-ddns-aliyun -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
+ddns-aliyun -e --accessKey 123 --accessKeySecret 123 --domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
 ```
 
 单域名方式
 不指定网卡，会根据你当前的外网IP动态绑定，如果支持IPv6,会优先绑定
 ``` sh
-ddns-aliyun -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0.xxx.com'
+ddns-aliyun -e --accessKey 123 --accessKeySecret 123 --domain  'eth0.xxx.com'
 ```
 
 指定IPv6方式
 ``` sh
-ddns-aliyun -e true -ip 6 -AccessKey 123 -AccessKeySecret 123 -Domain '网卡名&eth0.xxx.com'
+ddns-aliyun -e --ip 6 --accessKey 123 --accessKeySecret 123 --domain  '网卡名&eth0.xxx.com'
 ```
 
 ## 参数
 
-- -e `true或false` true是命令行执行
-- -Domain `'网卡名1&域名1，网卡名2&域名2'`, 网卡名与域名通过‘&’进行连接，多个域名使用','分割 
-- -ip `4或6` 指定要绑定的的ip类型
-- -v 输出版本，与其他参数冲突
+- -e, --execute 执行域名更新动作
+- -p, --print 打印机出本地所有的网卡信息。
+- -v, --version 版本号
+- --ip `4或6` 指定要绑定的的ip类型【默认取值6】
+- --accessKey 阿里分配的key
+- --accessKeySecret 阿里分配的密码
+- --domain `'网卡名1&域名1，网卡名2&域名2'`, 网卡名与域名通过‘&’进行连接，多个域名使用','分割 
 
 ## 定时执行
 
@@ -65,7 +68,7 @@ ddns-aliyun -e true -ip 6 -AccessKey 123 -AccessKeySecret 123 -Domain '网卡名
 
 ```
 #!/bin/bash
-ddns-aliyun -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
+ddns-aliyun -e --accessKey 123 --accessKeySecret 123 --domain  'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
 # read
 ```
 
