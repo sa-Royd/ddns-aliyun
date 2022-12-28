@@ -24,7 +24,7 @@ node版本>=16
 ## 安装方式
 
 ```
-npm i -g ddns-ali 
+npm i -g ddns-aliyun
 ```
 
 ## 命令执行方式
@@ -36,44 +36,18 @@ npm i -g ddns-ali
 多网卡绑定多域名方式：
 
 ``` sh
-ddns-ali -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
+ddns-aliyun -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
 ```
 
 单域名方式
 不指定网卡，会根据你当前的外网IP动态绑定，如果支持IPv6,会优先绑定
 ``` sh
-ddns-ali -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0.xxx.com'
+ddns-aliyun -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0.xxx.com'
 ```
 
 指定IPv6方式
 ``` sh
-ddns-ali -e true -ip 6 -AccessKey 123 -AccessKeySecret 123 -Domain '网卡名&eth0.xxx.com'
-```
-
-
-## 程序引入方式
-
-``` typescript
-import { IConfig, mian, logConfig, getArgv, getDomain, log } from 'ddns-ali';
-
-// logConfig.debug = true;// 是否输出日志信息
-
-async function init(){
-    const config = {} as IConfig;
-    config.AccessKey = getArgv('AccessKey') as string;
-    config.AccessKeySecret = getArgv('AccessKeySecret') as string;
-    config.IPVersion = getArgv('ip') as any || '4';
-    config.DomainObj = getDomain(getArgv('Domain'));
-    config.Domain = config.DomainObj.domain;
-    config.Ethernets = config.DomainObj.ethernet;
-
-    const r = await mian(config);
-    if(r) {
-        log('---成功---');
-    }else{
-        log('---失败---');
-    }
-}
+ddns-aliyun -e true -ip 6 -AccessKey 123 -AccessKeySecret 123 -Domain '网卡名&eth0.xxx.com'
 ```
 
 ## 参数
@@ -91,7 +65,7 @@ async function init(){
 
 ```
 #!/bin/bash
-ddns-ali -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
+ddns-aliyun -e true -AccessKey 123 -AccessKeySecret 123 -Domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
 # read
 ```
 
