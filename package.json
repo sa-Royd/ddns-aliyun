@@ -35,7 +35,7 @@
     "阿里ddns解析"
   ],
   "bin": {
-    "ddns-ali": "dist/index.js"
+    "ddns-aliyun": "dist/index.js"
   },
   "files": [
     "dist/",
