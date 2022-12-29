@@ -1,5 +1,5 @@
 {
-  "name": "ddns-aliyun",
+  "name": "sa-royd-ddns",
   "version": "1.1.0",
   "description": "提供阿里云的DDNS设置，支持多网卡多域名绑定。",
   "main": "index.js",
@@ -24,7 +24,7 @@
     "url": "git+https://github.com/sa-Royd/ddns-aliyun.git"
   },
   "bin":{
-	"ddns-aliyun":"dist/index.js"
+	"aliyun-ddns":"dist/index.js"
   },
   "keywords": [
     "ddns",

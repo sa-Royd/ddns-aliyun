@@ -24,7 +24,7 @@ node版本>=16
 ## 安装方式
 
 ```
-npm i -g ddns-aliyun
+npm i -g sa-Royd.ddns
 ```
 
 ## 命令执行方式
