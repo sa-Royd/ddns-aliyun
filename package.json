@@ -1,53 +1,40 @@
 {
-  "name": "ddns-ali",
+  "name": "ddns-aliyun",
   "version": "1.1.0",
-  "description": "提供阿里云的DDNS设置，支持多网卡多域名绑定public ",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc",
-    "npmTag": "npm publish  --tag beta -registry=https://registry.npmjs.org",
-    "npmPublish": "npm publish --access  -registry=https://registry.npmjs.org"
-  },
+  "description": "提供阿里云的DDNS设置，支持多网卡多域名绑定。",
+  "main": "index.js",
   "dependencies": {
-    "@alicloud/pop-core": "^1.7.9",
-    "tslib": "^2.3.1"
+    "bignumber.js": "^9.1.1",
+    "debug": "^3.2.7",
+    "httpx": "^2.2.7",
+    "json-bigint": "^1.0.0",
+    "kitx": "^1.3.0",
+    "ms": "^2.1.3",
+    "sax": "^1.2.4",
+    "tslib": "^2.4.1",
+    "xmlbuilder": "^11.0.1",
+    "xml2js": "^0.4.23"
   },
-  "author": "yangxiao (ifyx@qq.com)",
-  "license": "ISC",
-  "devDependencies": {
-    "@tsconfig/node10": "^1.0.8",
-    "@tsconfig/node12": "^1.0.9",
-    "@tsconfig/node14": "^1.0.1",
-    "@tsconfig/node16": "^1.0.2",
-    "@types/node": "^17.0.19",
-    "ts-node": "^10.5.0",
-    "typescript": "^4.5.5"
+  "devDependencies": {},
+  "scripts": {
+    "test": "./dist/index.js --print "
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sa-Royd/ddns-aliyun.git"
   },
-  "keywords": [
-    "aliyun",
-    "ddns",
-    "aliyunddns",
-    "阿里云域名解析",
-    "阿里ddns解析"
-  ],
-  "bin": {
-    "ddns-aliyun": "dist/index.js"
+  "bin":{
+	"ddns-aliyun":"dist/index.js"
   },
-  "files": [
-    "dist/",
-    "package.json",
-    "README.md"
+  "keywords": [
+    "ddns",
+    "ipv6",
+    "ipv4"
   ],
+  "author": "sa-royd",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/sa-Royd/ddns-aliyun/issues"
   },
-  "homepage": "https://github.com/sa-Royd/ddns-aliyun#readme",
-  "volta": {
-    "node": "16.9.1",
-    "npm": "6.14.15"
-  }
+  "homepage": "https://github.com/sa-Royd/ddns-aliyun#readme"
 }

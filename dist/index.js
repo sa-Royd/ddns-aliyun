@@ -20,7 +20,6 @@ async function init(argvs) {
     config.IPVersion = argvs.get('--ip');
     config.Domain = (0, getArgv_1.getDomain)(argvs.get("--domain"));
 
-	console.log(config);
     const settimeID = setTimeout(() => {
         (0, log_1.log)('---超时退出---');
         process.exit(1);

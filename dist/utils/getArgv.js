@@ -18,7 +18,7 @@ function createArgv(){
 			i++;
 		}
 		argv.set(name,value);
-		console.log(argv);
+
 		name="";
 		value="";
 	}
