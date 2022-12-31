@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDomain = exports.createArgv = void 0;
 function createArgv(){
 	var argv = new Map();
 	argv.set("--program",process.argv[0]);
@@ -24,7 +21,6 @@ function createArgv(){
 	}
 	return argv;
 }
-exports.createArgv = createArgv;
 
 // '10010&10010.xxxx.com,10086&10086.xxxx.com'
 // 网卡名1&要绑定的域名1,网卡名2&要绑定的域名2
@@ -52,4 +48,5 @@ function getDomain(v) {
     }
     return domains;
 }
-exports.getDomain = getDomain;
+
+export default { createArgv, getDomain };

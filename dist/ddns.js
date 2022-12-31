@@ -7,7 +7,7 @@ const log_1 = require("./utils/log");
 
 // 获取域名解析记录
 async function getDescribeDomainRecords(subDomain, mainDomain) {
-    const res = await config.aliyunCore.request('DescribeDomainRecords', {
+	const res = await config.aliyunCore.request('DescribeDomainRecords', {
         DomainName: mainDomain,
         PageSize: 100,
         KeyWord: subDomain,

@@ -1,14 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getLocalInterfaces = void 0;
-const tslib_1 = require("tslib");
-const os = (0, tslib_1.__importStar)(require("os"));
+import os from 'os';
 
 // 返回所有的ipv6地址的网卡及网卡名
-function getIpv6Address() {
+export function getIpv6Address() {
     const ipv6s = new Map();
     const nets = os.networkInterfaces();
-    for (let nw in nets) {
+	for (let nw in nets) {
         let objArr = nets[nw];
         if (objArr) {
 		objArr.forEach((obj, idx, arr) => {
@@ -24,6 +20,5 @@ function getIpv6Address() {
             return null;
         }
     }
-    return ipv6s;
+	return ipv6s;
 }
-exports.getIpv6Address = getIpv6Address;

@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.printLocalNetwork = void 0;
-const tslib_1 = require("tslib");
-const os = (0, tslib_1.__importStar)(require("os"));
-function printLocalNetwork() {
+import os from 'os';
+
+export function printLocalNetwork() {
     const networksObj = os.networkInterfaces();
     for (let nw in networksObj) {
         let objArr = networksObj[nw];
@@ -19,4 +16,3 @@ function printLocalNetwork() {
         console.log(`===========================`);
     }
 }
-exports.printLocalNetwork = printLocalNetwork;
