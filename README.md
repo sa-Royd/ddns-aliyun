@@ -1,4 +1,4 @@
-# ddns-aliyun
+# aliyun-ddns
 
 提供阿里云的DDNS设置，支持多网卡多域名绑定。
 
@@ -36,18 +36,18 @@ npm i -g sa-Royd.ddns
 多网卡绑定多域名方式：
 
 ``` sh
-ddns-aliyun -e --accessKey 123 --accessKeySecret 123 --domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
+aliyun-ddns -e --accessKey 123 --accessKeySecret 123 --domain 'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
 ```
 
 单域名方式
 不指定网卡，会根据你当前的外网IP动态绑定，如果支持IPv6,会优先绑定
 ``` sh
-ddns-aliyun -e --accessKey 123 --accessKeySecret 123 --domain  'eth0.xxx.com'
+aliyun-ddns -e --accessKey 123 --accessKeySecret 123 --domain  'eth0.xxx.com'
 ```
 
 指定IPv6方式
 ``` sh
-ddns-aliyun -e --ip 6 --accessKey 123 --accessKeySecret 123 --domain  '网卡名&eth0.xxx.com'
+aliyun-ddns -e --ip 6 --accessKey 123 --accessKeySecret 123 --domain  '网卡名&eth0.xxx.com'
 ```
 
 ## 参数
@@ -68,7 +68,7 @@ ddns-aliyun -e --ip 6 --accessKey 123 --accessKeySecret 123 --domain  '网卡名
 
 ```
 #!/bin/bash
-ddns-aliyun -e --accessKey 123 --accessKeySecret 123 --domain  'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
+aliyun-ddns -e --accessKey 123 --accessKeySecret 123 --domain  'eth0&eth0.xxx.com,eth1&eth1.xxx.com'
 # read
 ```
 
